@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -49,5 +50,16 @@ public class User {
     private Institution institution;
     @ElementCollection(targetClass = Role.class)
     @Enumerated(value = EnumType.STRING)
-    private Set<Role> role;
+    private Set<Role> roles;
+    @ManyToMany
+    @JoinTable(
+            name = "student_course",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List<Course> courses;
+
+    public boolean containsRole(Role role){
+        return roles.contains(role);
+    }
+
 }
