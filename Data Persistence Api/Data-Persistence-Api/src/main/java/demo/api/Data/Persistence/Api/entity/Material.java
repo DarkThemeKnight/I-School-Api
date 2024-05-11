@@ -1,9 +1,7 @@
 package demo.api.Data.Persistence.Api.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import demo.api.Data.Persistence.Api.constants.MaterialType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,4 +22,6 @@ public class Material {
     private String description;
     private LocalDate lifeTime;
     private String fileUrl;
+    @Enumerated(value = EnumType.STRING)
+    private MaterialType materialType;
 }
