@@ -60,8 +60,9 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
-
-
+    @ManyToOne
+    @JoinColumn(name = "faculty_id")
+    private Faculty faculty;
     public boolean containsRole(Role role){
         return roles.contains(role);
     }
