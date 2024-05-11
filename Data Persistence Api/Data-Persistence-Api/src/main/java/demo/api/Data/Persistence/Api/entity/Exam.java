@@ -24,6 +24,10 @@ public class Exam {
 
     private String title;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
+
     private LocalDateTime examDate;
 
     private int duration; // Duration in minutes

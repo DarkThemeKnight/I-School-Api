@@ -21,6 +21,9 @@ public class Grade {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
     private int continuousAssessmentScore;
     private int examScore;
     private int totalScore;
