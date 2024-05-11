@@ -1,6 +1,8 @@
 package demo.api.Data.Persistence.Api.repository;
 
+import demo.api.Data.Persistence.Api.constants.Role;
 import demo.api.Data.Persistence.Api.entity.Institution;
+import demo.api.Data.Persistence.Api.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

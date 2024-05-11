@@ -1,5 +1,6 @@
 package demo.api.Data.Persistence.Api.entity;
 
+import demo.api.Data.Persistence.Api.constants.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -42,5 +44,10 @@ public class User {
     private String state;
     @Column(nullable = false)
     private String country;
-
+    @ManyToOne
+    @JoinColumn(name = "institution_id", nullable = false)
+    private Institution institution;
+    @ElementCollection(targetClass = Role.class)
+    @Enumerated(value = EnumType.STRING)
+    private Set<Role> role;
 }
