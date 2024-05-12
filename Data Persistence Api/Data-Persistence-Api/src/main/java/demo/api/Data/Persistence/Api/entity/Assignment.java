@@ -1,27 +1,27 @@
 package demo.api.Data.Persistence.Api.entity;
 
-import demo.api.Data.Persistence.Api.constants.MaterialType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class Material {
+public class Assignment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
-    private LocalDate lifeTime;
-    private String fileUrl;
-    @Enumerated(value = EnumType.STRING)
-    private MaterialType materialType;
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
+    private LocalDateTime deadline;
+    private int assignmentGrade;
 }
